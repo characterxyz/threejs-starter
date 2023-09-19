@@ -21,7 +21,7 @@ export default function Home() {
       </header>
 
       <main className="flex-grow flex flex-wrap justify-center items-center gap-8">
-        {["Playground 1", "Playground 2", "Playground 3"].map(
+        {["Playground 1", "Playground 2", "Playground 3", "Playground 4"].map(
           (playground, idx) => (
             <div key={idx} className="group w-64">
               <a
@@ -65,4 +65,5 @@ const playgroundDescriptions = [
   "Simplest Character.xyz's character integration + locomotion",
   "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules",
   "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera",
+  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera + AI Character Patrol",
 ];
