@@ -1,0 +1,68 @@
+import Head from "next/head";
+import Image from "next/image";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col p-4">
+      <Head>
+        <title>Character.xyz's Three.js Starter Package</title>
+        <meta
+          name="description"
+          content="A starter package for Three.js with character.xyz integration"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <header className="w-full text-center mt-8 mb-12">
+        <h1 className="text-4xl font-bold text-white">
+          {`character.xyz <> three.js`}
+        </h1>
+        <p className="text-2xl text-white">Starter Package</p>
+      </header>
+
+      <main className="flex-grow flex flex-wrap justify-center items-center gap-8">
+        {["Playground 1", "Playground 2", "Playground 3"].map(
+          (playground, idx) => (
+            <div key={idx} className="group w-64">
+              <a
+                href={`./${playground.toLowerCase().replace(" ", "")}`}
+                target="_blank"
+                className="block p-6 border-4 border-yellow-400 rounded-lg shadow-md transition-transform bg-gradient-to-br from-red-500 via-purple-600 to-indigo-500 hover:opacity-75 transform hover:scale-105"
+              >
+                <h2 className="text-2xl font-semibold mb-4 group-hover:text-yellow-400">
+                  {playground}
+                </h2>
+                <p>{playgroundDescriptions[idx]}</p>
+              </a>
+            </div>
+          )
+        )}
+      </main>
+
+      <footer className="mt-12 text-center">
+        <a
+          href="https://www.character.xyz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-400 hover:text-white"
+        >
+          Powered by{" "}
+          <span className="flex items-center justify-center">
+            <Image
+              src="https://www.character.xyz/_next/static/media/characterxyz.3c60088b.svg"
+              alt="Character XYZ Logo"
+              width={72}
+              height={16}
+            />
+          </span>
+        </a>
+      </footer>
+    </div>
+  );
+}
+
+const playgroundDescriptions = [
+  "Simplest Character.xyz's character integration + locomotion",
+  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules",
+  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera",
+];
