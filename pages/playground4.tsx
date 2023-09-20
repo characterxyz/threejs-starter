@@ -4,7 +4,8 @@ import { Canvas } from "@react-three/fiber";
 
 import {
   Character,
-  Controller,
+  NPCController,
+  PlayerController,
   LocomotionBehaviorModule,
   NPCPatrolBehaviorModule,
   ThirdPersonCamera,
@@ -19,8 +20,8 @@ const GROUND_LAYER = 1;
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
 
-  const controller = new Controller();
-  controller.registerModule(new LocomotionBehaviorModule());
+  const playerController = new PlayerController();
+  playerController.registerModule(new LocomotionBehaviorModule());
 
   const patrolPoints: PatrolPoint[] = [
     {
@@ -49,8 +50,8 @@ const SceneContent: React.FC = () => {
     },
   ];
   const patrolBehavior = new NPCPatrolBehaviorModule(patrolPoints);
-  const aiController = new Controller();
-  aiController.registerModule(patrolBehavior);
+  const npcController = new NPCController();
+  npcController.registerModule(patrolBehavior);
 
   const characterRef = useRef<Character | null>(null);
 
@@ -76,7 +77,7 @@ const SceneContent: React.FC = () => {
           scene: scene as any,
           slug: "",
           position: [0, 0, 0],
-          controller,
+          controller: playerController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
         }}
@@ -88,7 +89,7 @@ const SceneContent: React.FC = () => {
           scene: scene as any,
           slug: "",
           position: [3, 0, 5],
-          controller: aiController,
+          controller: npcController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
         }}

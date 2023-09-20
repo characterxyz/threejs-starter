@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 
 import {
   Character,
-  Controller,
+  PlayerController,
   LocomotionBehaviorModule,
   ThirdPersonCamera,
 } from "@characterxyz/three-character";
@@ -15,12 +15,12 @@ import { useRef } from "react";
 const GROUND_LAYER = 1;
 
 interface PlayerCharacterProps {
-  controller: Controller;
+  controller: PlayerController;
 }
 
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
-  const controller = new Controller();
+  const controller = new PlayerController();
   controller.registerModule(new LocomotionBehaviorModule());
   const characterRef = useRef<Character | null>(null);
 

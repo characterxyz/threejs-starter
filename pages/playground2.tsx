@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 
 import {
   Character,
-  Controller,
+  PlayerController,
   LocomotionBehaviorModule,
   ThirdPersonCamera,
 } from "@characterxyz/three-character";
@@ -16,12 +16,12 @@ import { OrbitControls } from "@react-three/drei";
 const GROUND_LAYER = 0; // Preferred to keep it as a separate layer from the default layer. Eg: 1
 
 interface PlayerCharacterProps {
-  controller: Controller;
+  controller: PlayerController;
 }
 
 const SceneContent: React.FC = () => {
   const { scene } = useThree();
-  const controller = new Controller();
+  const controller = new PlayerController();
   controller.registerModule(new LocomotionBehaviorModule());
   const characterRef = useRef<Character | null>(null);
 
