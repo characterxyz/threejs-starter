@@ -5,7 +5,7 @@ import {
   PlayerController,
   LocomotionBehaviorModule,
   ThirdPersonCamera,
-  LocomotionBehaviorKeyMapping,
+  LocomotionBehaviorInputMapping,
   InputCodes,
 } from "@characterxyz/three-character";
 import * as THREE from "three";
@@ -17,7 +17,7 @@ const GROUND_LAYER = 1;
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
 
-  const customMappings: LocomotionBehaviorKeyMapping = {
+  const customMappings: LocomotionBehaviorInputMapping = {
     moveForward: InputCodes.KEYBOARD_UP_ARROW,
     leftTurn: InputCodes.KEYBOARD_LEFT_ARROW,
     rightTurn: InputCodes.KEYBOARD_RIGHT_ARROW,

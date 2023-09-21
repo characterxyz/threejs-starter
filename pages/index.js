@@ -20,19 +20,20 @@ export default function Home() {
         <p className="text-2xl text-white">Starter Package</p>
       </header>
 
-      <main className="flex-grow flex flex-wrap justify-center items-center gap-8">
+      <main className="flex-grow grid gap-4 items-start place-content-center px-8 max-w-screen-xl mx-auto lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {[
           "Playground 1",
           "Playground 2",
           "Playground 3",
           "Playground 4",
           "Playground 5",
+          "Playground 6",
         ].map((playground, idx) => (
-          <div key={idx} className="group w-64">
+          <div key={idx} className="group w-64 h-72 flex flex-col">
             <a
               href={`./${playground.toLowerCase().replace(" ", "")}`}
               target="_blank"
-              className="block p-6 border-4 border-yellow-400 rounded-lg shadow-md transition-transform bg-gradient-to-br from-red-500 via-purple-600 to-indigo-500 hover:opacity-75 transform hover:scale-105"
+              className="block h-full flex flex-col justify-center items-center p-6 border-4 border-yellow-400 rounded-lg shadow-md transition-transform bg-gradient-to-br from-red-500 via-purple-600 to-indigo-500 hover:opacity-75 transform hover:scale-105"
             >
               <h2 className="text-2xl font-semibold mb-4 group-hover:text-yellow-400">
                 {playground}
@@ -67,8 +68,9 @@ export default function Home() {
 
 const playgroundDescriptions = [
   "Simplest Character.xyz's character integration + locomotion",
-  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules",
-  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera",
-  "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera + AI Character Patrol",
-  "Character.xyz's character integration + single player locomotion + plug and play behavior modules + custom input mappings",
+  "Playground 1 features + customizing controller for plug and play behavior modules",
+  "Playground 2 features + third person follow camera",
+  "Playground 3 features + AI Character Patrol",
+  "Playground 3 features + custom input mappings",
+  "Playground 5 features + configure visual styles",
 ];
