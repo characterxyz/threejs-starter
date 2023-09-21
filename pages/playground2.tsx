@@ -1,5 +1,3 @@
-// playground1 - Simple characterxyz's character setup
-
 import { Canvas } from "@react-three/fiber";
 
 import {

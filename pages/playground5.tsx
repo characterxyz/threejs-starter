@@ -5,6 +5,8 @@ import {
   PlayerController,
   LocomotionBehaviorModule,
   ThirdPersonCamera,
+  LocomotionBehaviorKeyMapping,
+  InputCodes,
 } from "@characterxyz/three-character";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
@@ -12,14 +14,21 @@ import { useRef } from "react";
 
 const GROUND_LAYER = 1;
 
-interface PlayerCharacterProps {
-  controller: PlayerController;
-}
-
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
-  const controller = new PlayerController();
-  controller.registerModule(new LocomotionBehaviorModule());
+
+  const customMappings: LocomotionBehaviorKeyMapping = {
+    moveForward: InputCodes.KEYBOARD_UP_ARROW,
+    leftTurn: InputCodes.KEYBOARD_LEFT_ARROW,
+    rightTurn: InputCodes.KEYBOARD_RIGHT_ARROW,
+    Jump: InputCodes.KEYBOARD_ENTER,
+    toggleRun: InputCodes.KEYBOARD_F,
+  };
+
+  const locomotionBehavior = new LocomotionBehaviorModule(customMappings);
+  const playerController = new PlayerController();
+  playerController.registerModule(locomotionBehavior);
+
   const characterRef = useRef<Character | null>(null);
 
   return (
@@ -43,7 +52,8 @@ const SceneContent: React.FC = () => {
         config={{
           scene: scene as any,
           slug: "",
-          controller,
+          position: [0, 0, 0],
+          controller: playerController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
         }}
@@ -60,7 +70,7 @@ const SceneContent: React.FC = () => {
   );
 };
 
-export default function Playground3() {
+export default function Playground5() {
   return (
     <div
       style={{

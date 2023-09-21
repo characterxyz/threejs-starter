@@ -1,5 +1,3 @@
-// playground2 - Third person character movement with camera setup
-
 import { Canvas } from "@react-three/fiber";
 
 import {

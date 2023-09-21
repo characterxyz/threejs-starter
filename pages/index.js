@@ -21,22 +21,26 @@ export default function Home() {
       </header>
 
       <main className="flex-grow flex flex-wrap justify-center items-center gap-8">
-        {["Playground 1", "Playground 2", "Playground 3", "Playground 4"].map(
-          (playground, idx) => (
-            <div key={idx} className="group w-64">
-              <a
-                href={`./${playground.toLowerCase().replace(" ", "")}`}
-                target="_blank"
-                className="block p-6 border-4 border-yellow-400 rounded-lg shadow-md transition-transform bg-gradient-to-br from-red-500 via-purple-600 to-indigo-500 hover:opacity-75 transform hover:scale-105"
-              >
-                <h2 className="text-2xl font-semibold mb-4 group-hover:text-yellow-400">
-                  {playground}
-                </h2>
-                <p>{playgroundDescriptions[idx]}</p>
-              </a>
-            </div>
-          )
-        )}
+        {[
+          "Playground 1",
+          "Playground 2",
+          "Playground 3",
+          "Playground 4",
+          "Playground 5",
+        ].map((playground, idx) => (
+          <div key={idx} className="group w-64">
+            <a
+              href={`./${playground.toLowerCase().replace(" ", "")}`}
+              target="_blank"
+              className="block p-6 border-4 border-yellow-400 rounded-lg shadow-md transition-transform bg-gradient-to-br from-red-500 via-purple-600 to-indigo-500 hover:opacity-75 transform hover:scale-105"
+            >
+              <h2 className="text-2xl font-semibold mb-4 group-hover:text-yellow-400">
+                {playground}
+              </h2>
+              <p>{playgroundDescriptions[idx]}</p>
+            </a>
+          </div>
+        ))}
       </main>
 
       <footer className="mt-12 text-center">
@@ -66,4 +70,5 @@ const playgroundDescriptions = [
   "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules",
   "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera",
   "Character.xyz's character integration + locomotion + customizing controller for plug and play behavior modules + third person follow camera + AI Character Patrol",
+  "Character.xyz's character integration + single player locomotion + plug and play behavior modules + custom input mappings",
 ];
