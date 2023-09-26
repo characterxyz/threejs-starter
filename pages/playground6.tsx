@@ -18,6 +18,7 @@ const GROUND_LAYER = 1;
 
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
+  const characterRef = useRef<Character | null>(null);
 
   const playerController = new PlayerController();
   playerController.registerModule(new LocomotionBehaviorModule());
@@ -59,8 +60,6 @@ const SceneContent: React.FC = () => {
   const mcNPCController = new NPCController();
   mcNPCController.registerModule(mcPatrolBehavior);
 
-  const characterRef = useRef<Character | null>(null);
-
   return (
     <>
       <ambientLight intensity={0.5} />
@@ -83,7 +82,7 @@ const SceneContent: React.FC = () => {
           scene: scene as any,
           slug: "",
           visualStyle: VisualStyle.VOXELIZED,
-          position: [0, 0, 0],
+          position: new THREE.Vector3(),
           controller: playerController,
           groundLayer: GROUND_LAYER,
         }}
@@ -95,23 +94,24 @@ const SceneContent: React.FC = () => {
           scene: scene as any,
           slug: "",
           visualStyle: VisualStyle.MINIFIED,
-          position: [3, 0, 5],
+          position: new THREE.Vector3(),
           controller: mcNPCController,
           groundLayer: GROUND_LAYER,
         }}
       />
 
       {/* A.I. character */}
-      <Character
+      {/* <Character
         config={{
           scene: scene as any,
+          renderer: renderer,
           slug: "",
           visualStyle: VisualStyle.DETAILED,
           position: [5, 0, 3],
           controller: dcNPCController,
           groundLayer: GROUND_LAYER,
         }}
-      />
+      /> */}
 
       <ThirdPersonCamera
         target={characterRef.current?.getTransform()}

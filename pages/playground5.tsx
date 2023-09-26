@@ -52,7 +52,7 @@ const SceneContent: React.FC = () => {
         config={{
           scene: scene as any,
           slug: "",
-          position: [0, 0, 0],
+          position: new THREE.Vector3(0, 0, 0),
           controller: playerController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
