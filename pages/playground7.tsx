@@ -6,8 +6,6 @@ import {
   Character,
   Characters,
   NPCController,
-  PlayerController,
-  LocomotionBehaviorModule,
   NPCPatrolBehaviorModule,
   ThirdPersonCamera,
   VisualStyle,
@@ -32,8 +30,6 @@ const generateSinglePatrolPoint = (basePosition: THREE.Vector3) => [
 const SceneContent: React.FC = () => {
   const { scene, set } = useThree();
   const characterRef = useRef<Character | null>(null);
-  const playerController = new PlayerController();
-  playerController.registerModule(new LocomotionBehaviorModule());
 
   let remainingCharacters = NO_OF_NPC_CHARACTERS;
   const characterConfigs = [];
@@ -120,7 +116,7 @@ const SceneContent: React.FC = () => {
           slug: "",
           visualStyle: VisualStyle.VOXELIZED,
           position: new THREE.Vector3(),
-          controller: playerController,
+          useDefaultPlayerController: true,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
         }}
