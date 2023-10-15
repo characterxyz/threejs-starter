@@ -4,6 +4,7 @@ import * as THREE from "three";
 import Stats from "stats.js";
 import {
   Character,
+  CharacterConfig,
   Characters,
   NPCController,
   NPCPatrolBehaviorModule,
@@ -32,7 +33,7 @@ const SceneContent: React.FC = () => {
   const characterRef = useRef<Character | null>(null);
 
   let remainingCharacters = NO_OF_NPC_CHARACTERS;
-  const characterConfigs = [];
+  const characterConfigs: CharacterConfig[] = [];
 
   for (let i = 0; i < NO_OF_CIRCLES; i++) {
     const radius = (i + 1) * SPACE_BETWEEN_CIRCLES;
@@ -58,10 +59,10 @@ const SceneContent: React.FC = () => {
       );
 
       characterConfigs.push({
-        scene: scene,
+        scene: scene as any,
         slug: `Tamashi-TiAJWr3sWxh79UKd1UDU`,
         visualStyle: VisualStyle.VOXELIZED,
-        position: startPosition,
+        position: startPosition as any,
         controller: controller,
         groundLayer: GROUND_LAYER,
         debugDraw: true,
@@ -93,7 +94,7 @@ const SceneContent: React.FC = () => {
     const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 32);
     const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphereMesh.position.copy(config.position);
+    sphereMesh.position.copy(config.position as any);
     scene.add(sphereMesh);
   });
 
@@ -115,18 +116,18 @@ const SceneContent: React.FC = () => {
           scene: scene as any,
           slug: "",
           visualStyle: VisualStyle.VOXELIZED,
-          position: new THREE.Vector3(),
+          position: [0, 0, 0] as any,
           useDefaultPlayerController: true,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
         }}
       />
-      <Characters characterConfigs={characterConfigs} />
+      <Characters configs={characterConfigs} />
       <ThirdPersonCamera
         target={characterRef.current?.getTransform()}
         groundLayer={GROUND_LAYER}
         onCameraCreated={(camera) => {
-          set({ camera: camera });
+          set({ camera: camera as any });
         }}
       />
     </>

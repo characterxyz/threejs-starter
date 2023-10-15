@@ -29,6 +29,7 @@ export default function Home() {
           "Playground 5",
           "Playground 6",
           "Playground 7",
+          "Playground 8",
         ].map((playground, idx) => (
           <div key={idx} className="group w-64 h-72 flex flex-col">
             <a
@@ -75,4 +76,5 @@ const playgroundDescriptions = [
   "Playground 3 features + custom input mappings",
   "Playground 5 features + configure visual styles",
   "Playground 6 features + Optimized multi character instances - stress testing",
+  "Playground 7 features + Custom Character component + Sprite Text",
 ];

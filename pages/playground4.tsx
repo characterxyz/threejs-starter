@@ -74,7 +74,7 @@ const SceneContent: React.FC = () => {
         config={{
           scene: scene as any,
           slug: "",
-          position: [0, 0, 0],
+          position: [0, 0, 0] as any,
           controller: playerController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
@@ -86,7 +86,7 @@ const SceneContent: React.FC = () => {
         config={{
           scene: scene as any,
           slug: "",
-          position: [3, 0, 5],
+          position: [3, 0, 5] as any,
           controller: npcController,
           groundLayer: GROUND_LAYER,
           debugDraw: true,
@@ -97,7 +97,7 @@ const SceneContent: React.FC = () => {
         target={characterRef.current?.getTransform()}
         groundLayer={GROUND_LAYER}
         onCameraCreated={(camera) => {
-          set({ camera: camera });
+          set({ camera: camera as any });
         }}
       />
     </>

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["three"],
     "target": "esnext",
     "module": "commonjs",
     "jsx": "preserve",
