@@ -81,22 +81,12 @@ const SceneContent: React.FC = () => {
     {
       scene: scene as any,
       slug: "",
-      visualStyle: VisualStyle.MINIFIED,
-      position: new Vector3(0, 0, 0) as any,
-      controller: playerController,
-      components: [playerNameTextComponent],
-      groundLayer: GROUND_LAYER,
-      debugDraw: true,
-    },
-    {
-      scene: scene as any,
-      slug: "",
       visualStyle: VisualStyle.VOXELIZED,
       position: new Vector3(0, 0, 0) as any,
       controller: npcController,
       components: [npcNameTextComponent],
       groundLayer: GROUND_LAYER,
-      debugDraw: true,
+      debugDraw: false,
     },
     {
       scene: scene as any,
@@ -106,7 +96,7 @@ const SceneContent: React.FC = () => {
       controller: npcController2,
       components: [npcNameTextComponent2],
       groundLayer: GROUND_LAYER,
-      debugDraw: true,
+      debugDraw: false,
     },
   ];
 
@@ -122,9 +112,22 @@ const SceneContent: React.FC = () => {
         <planeGeometry args={[100, 100]} />
         <meshStandardMaterial color="gray" />
       </mesh>
+      <Character
+        ref={characterRef}
+        config={{
+          scene: scene as any,
+          slug: "",
+          visualStyle: VisualStyle.MINIFIED,
+          position: [0, 0, 0] as any,
+          useDefaultPlayerController: true,
+          components: [playerNameTextComponent],
+          groundLayer: GROUND_LAYER,
+          debugDraw: true,
+        }}
+      />
       <Characters configs={characterConfigs} />
       <ThirdPersonCamera
-        target={characterRef?.current?.getTransform()}
+        target={characterRef.current?.getTransform()}
         groundLayer={GROUND_LAYER}
         onCameraCreated={(camera) => {
           set({ camera: camera as any });

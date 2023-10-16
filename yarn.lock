@@ -19,10 +19,10 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@characterxyz/three-character@^1.3.177":
-  version "1.3.177"
-  resolved "https://registry.yarnpkg.com/@characterxyz/three-character/-/three-character-1.3.177.tgz#718c7ff1deb667b208b8e3b39204c667e42593c4"
-  integrity sha512-2nyTOTrOnn6o78i8ijkpigcyCynDv8jTh2bmqafSQG9Qbf+tmh3sDaGyWfpdur5/toDErXwSIkrpeGyie+J5MQ==
+"@characterxyz/three-character@^1.3.188":
+  version "1.3.188"
+  resolved "https://registry.yarnpkg.com/@characterxyz/three-character/-/three-character-1.3.188.tgz#cb17915d6c385984aa07e53ec6e106b9d340b479"
+  integrity sha512-XxD8yfcVF7RstdoTmb4MgYupCIq1Eg4EpjHvNQLvtpNLgYfRZR2ChJN46sfkuvmH0ypEiz0U0JQhBfl7Gluelw==
   dependencies:
     "@react-three/fiber" "^8.14.1"
     dotenv "^16.3.1"
